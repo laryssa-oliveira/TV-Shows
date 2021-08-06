@@ -1,0 +1,34 @@
+apply from: 'versions.gradle'
+apply from: 'libs.gradle'
+apply from: 'testLibs.gradle'
+apply from: 'testDependencies.gradle'
+apply from: 'dependencies.gradle'
+
+buildscript {
+    ext.kotlinVersion = '1.4.21'
+    ext.nav_version = "2.3.4"
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
