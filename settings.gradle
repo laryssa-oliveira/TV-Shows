@@ -1,0 +1,18 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "TV-Shows"
+include ':app'
+include ':data_local'
+include ':data'
+include ':data_remote'
+include ':base_feature'
+include ':di'
+include ':domain'
+include ':feature_main'
+include ':intent'
