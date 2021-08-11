@@ -15,6 +15,7 @@ dependencies {
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
     presentationDependencies.each { add(it.configuration, it.dependency, it.options) }
     implementation project(':base_feature')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
 
 repositories {
