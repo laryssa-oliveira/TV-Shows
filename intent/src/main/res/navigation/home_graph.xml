@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.feature_main.SplashFragment"
+        android:name="com.example.feature_main.ui.SplashFragment"
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_homeFragment2"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.feature_main.HomeFragment"
+        android:name="com.example.feature_main.ui.HomeFragment"
         android:label="HomeFragment" />
 </navigation>
