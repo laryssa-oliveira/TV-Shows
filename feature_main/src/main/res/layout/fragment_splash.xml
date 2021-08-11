@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="SplashFragment"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="312dp"
+        android:layout_height="368dp"
+        android:src="@drawable/ic_splash"
+        android:layout_marginTop="192dp"
+        android:layout_marginStart="48dp"/>
+
+</FrameLayout>
