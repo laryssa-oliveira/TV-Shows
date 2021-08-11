@@ -1,4 +1,4 @@
-package com.example.feature_main
+package com.example.feature_main.ui
 
 import android.os.Bundle
 import android.os.Handler

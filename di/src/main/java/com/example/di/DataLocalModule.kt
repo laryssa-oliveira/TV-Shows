@@ -17,7 +17,7 @@ val dataLocalModule = module {
             Context.MODE_PRIVATE
         )
 
-    single<LocalDataSource> { LocalDataSourceImpl(get(), get()) }
+    single<LocalDataSource> { LocalDataSourceImpl(get()) }
 
     single { provideSharedPreferences(androidContext()) }
 

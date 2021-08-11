@@ -40,7 +40,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/ic_favorite"
+            android:background="@drawable/ic_not_favorite"
             android:backgroundTint="@color/white"
             app:backgroundTint="@color/black"
             app:layout_constraintEnd_toEndOf="@id/imageShow"

@@ -7,17 +7,17 @@ import com.example.data_local.model.ShowLocal
 interface ShowDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createShow(companyLocal: ShowLocal)
+    suspend fun createShow(showLocal: ShowLocal)
 
-    @Query("SELECT * FROM shows_table WHERE id = :idCompany")
-    suspend fun getShowById(idCompany: Int) : ShowLocal?
+    @Query("SELECT * FROM shows_table WHERE id = :idShow")
+    suspend fun getShowById(idShow: Int) : ShowLocal?
 
     @Query("SELECT * FROM shows_table")
     suspend fun getShowByFavorite() : List<ShowLocal>?
 
     @Update
-    suspend fun updateShow(companyLocal: ShowLocal)
+    suspend fun updateShow(showLocal: ShowLocal)
 
     @Delete
-    suspend fun deleteShow(companyLocal: ShowLocal)
+    suspend fun deleteShow(showLocal: ShowLocal)
 }
