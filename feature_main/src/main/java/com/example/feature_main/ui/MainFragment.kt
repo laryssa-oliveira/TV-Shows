@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.base_feature.ShowAdapter
 import com.example.base_feature.ViewState
+import com.example.base_feature.model.ShowPresentation
 import com.example.base_feature.navDirections
-import com.example.domain.entities.Show
 import com.example.feature_main.databinding.FragmentMainBinding
 import com.example.feature_main.navigation.HomeNavigation
 import com.example.feature_main.presentation.MainViewModel
@@ -42,7 +43,7 @@ class MainFragment : Fragment() {
         mainViewModel.showListLiveData.observe(viewLifecycleOwner, {
             when (it.state) {
 
-                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf<Show>())
+                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf<ShowPresentation>())
                 ViewState.State.ERROR -> onResultError(it.error)
                 ViewState.State.LOADING -> onLoading(it.isLoading)
             }
@@ -62,14 +63,14 @@ class MainFragment : Fragment() {
         Toast.makeText(requireContext(), error?.message ?: "", Toast.LENGTH_LONG).show()
     }
 
-    private fun onSuccess(list: List<Show>) {
+    private fun onSuccess(list: List<ShowPresentation>) {
         onLoading(false)
         adapter = ShowAdapter(callback = ::clickItem)
         adapter.setItems(list)
         binding.recyclerViewShow.adapter = adapter
     }
 
-    private fun clickItem(show: Show) {
+    private fun clickItem(show: ShowPresentation) {
         navigation.navigateToDetails(show)
     }
 

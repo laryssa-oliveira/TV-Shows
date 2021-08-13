@@ -1,4 +1,4 @@
-package com.example.feature_main.ui
+package com.example.base_feature
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +7,16 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.entities.Show
-import com.example.feature_main.R
+import com.example.base_feature.model.ShowPresentation
 
 class ShowAdapter(
-    private val callback: (Show) -> Unit
+    private val callback: (ShowPresentation) -> Unit
 ) : RecyclerView.Adapter<ShowAdapter.ShowsViewHolder>() {
 
-    private var shows: List<Show> = emptyList()
+    private var shows: List<ShowPresentation> = emptyList()
 
     inner class ShowsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(show: Show) {
+        fun bind(show: ShowPresentation) {
             itemView.findViewById<AppCompatTextView>(R.id.titleShow).text =
                 show.name
 
@@ -49,7 +48,7 @@ class ShowAdapter(
             Glide
                 .with(itemView)
                 .load(show.image)
-                .placeholder(R.drawable.ic_logo)
+                .placeholder(R.drawable.ic_favorite)
                 .into(imageView);
         }
 
@@ -72,7 +71,7 @@ class ShowAdapter(
         return shows.size
     }
 
-    fun setItems(list: List<Show>) {
+    fun setItems(list: List<ShowPresentation>) {
         shows = list
     }
 }

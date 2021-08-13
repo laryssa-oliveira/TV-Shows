@@ -9,24 +9,18 @@ import com.example.data_local.database.DatabaseConverter
 @TypeConverters(DatabaseConverter::class)
 data class ShowLocal(
     @PrimaryKey var id: Int,
-    var favorite: Boolean = false,
-    val name: String = "",
-    val summary: String = "",
-    val image: ShowImageLocal?,
-    val officialSite: String? = "",
-    val genres: ShowGenreLocal?,
-    val status: String = ""
+    var favorite: Boolean,
+    val name: String,
+    val summary: String,
+    val image: ShowImageLocal,
+    val officialSite: String,
+    val genres: List<String>,
+    val status: String
 )
 
 @Entity(tableName = "shows_image_table")
 class ShowImageLocal (
-    @PrimaryKey val id: Int,
-    val medium: String = "",
-    val original: String = ""
+    @PrimaryKey val medium: String,
+    val original: String
 )
 
-@Entity(tableName = "shows_genres_table")
-class ShowGenreLocal (
-    @PrimaryKey val id: Int,
-    val genres: String = ""
-)

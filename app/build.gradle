@@ -15,3 +15,10 @@ dependencies {
 androidExtensions {
     experimental = true
 }
+
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
