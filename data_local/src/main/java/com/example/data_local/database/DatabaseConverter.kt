@@ -1,15 +1,14 @@
 package com.example.data_local.database
 
 import androidx.room.TypeConverter
-import com.example.data_local.model.ShowGenreLocal
 import com.example.data_local.model.ShowImageLocal
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class DatabaseConverter {
     @TypeConverter
-    fun toShowGenreLocal(string: String): ShowGenreLocal {
-        val type = object : TypeToken<ShowGenreLocal>() {}.type
+    fun toShowGenreLocal(string: String): List<String> {
+        val type = object : TypeToken<List<String>>() {}.type
         return Gson().fromJson(string, type)
     }
 
@@ -20,7 +19,7 @@ class DatabaseConverter {
     }
 
     @TypeConverter
-    fun fromShowGenreLocal(string: ShowGenreLocal): String {
+    fun fromShowGenreLocal(string: List<String>): String {
         return Gson().toJson(string)
     }
 

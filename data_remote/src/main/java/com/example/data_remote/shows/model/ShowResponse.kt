@@ -5,23 +5,23 @@ import com.google.gson.annotations.SerializedName
 data class ShowResponse (
 
     @SerializedName("id")
-    val id: Int,
+    val id: Int? = null,
 
     @SerializedName("name")
-    val name: String,
+    val name: String? = null,
 
     @SerializedName("summary")
-    val summary: String,
+    val summary: String? = null,
 
     @SerializedName("image")
-    val image: ShowImageResponse,
+    val image: ShowImageResponse? = null,
 
     @SerializedName("officialSite")
     val officialSite: String? = null,
 
     @SerializedName("genres")
-    val genres: ShowGenreResponse,
+    val genres: List<String>? = null,
 
     @SerializedName("status")
-    val status: String
+    val status: String? = null
 )

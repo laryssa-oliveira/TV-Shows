@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class ShowImageResponse (
     @SerializedName("medium")
-    val medium: String,
+    val medium: String? = null,
 
     @SerializedName("original")
-    val original: String
+    val original: String? = null
 )

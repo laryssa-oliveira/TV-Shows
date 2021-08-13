@@ -1,10 +1,8 @@
 package com.example.data_local.mappers
 
-import com.example.data_local.model.ShowGenreLocal
 import com.example.data_local.model.ShowImageLocal
 import com.example.data_local.model.ShowLocal
 import com.example.domain.entities.Show
-import com.example.domain.entities.ShowGenre
 import com.example.domain.entities.ShowImage
 
 object LocalModelMappers {
@@ -14,24 +12,17 @@ object LocalModelMappers {
             id = id,
             name = name,
             summary = summary,
-            image = image?.toLocalModel(),
+            image = image.toLocalModel(),
             officialSite = officialSite,
-            genres = genres?.toLocalModel(),
+            genres = genres,
             status = status,
             favorite = favorite
         )
 
     fun ShowImage.toLocalModel() =
         ShowImageLocal(
-            id = id,
             medium = medium,
             original = original
-        )
-
-    fun ShowGenre.toLocalModel() =
-        ShowGenreLocal(
-            id = id,
-            genres = genre
         )
 
     fun ShowLocal.toModel() =
@@ -39,25 +30,19 @@ object LocalModelMappers {
             id = id,
             name = name,
             summary = summary,
-            image = image?.toModel(),
+            image = image.toModel(),
             officialSite = officialSite,
-            genres = genres?.toModel(),
+            genres = genres,
             status = status,
             favorite = favorite
         )
 
     fun ShowImageLocal.toModel() =
         ShowImage(
-            id = id,
             medium = medium,
             original = original
         )
 
-    fun ShowGenreLocal.toModel() =
-        ShowGenre(
-            id = id,
-            genre = genres
-        )
 
     fun List<ShowLocal>.toModel() = this.map { it.toModel() }
 

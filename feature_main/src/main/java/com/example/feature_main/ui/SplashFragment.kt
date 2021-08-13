@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.base_feature.navDirections
 import com.example.feature_main.databinding.FragmentSplashBinding
-
-private lateinit var binding: FragmentSplashBinding
+import com.example.feature_main.navigation.SplashNavigation
 
 class SplashFragment : Fragment() {
+
+    private lateinit var binding: FragmentSplashBinding
+    private val navigation: SplashNavigation by navDirections()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +25,9 @@ class SplashFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        Handler(requireActivity().mainLooper).postDelayed({}, 2500)
+        Handler(requireActivity().mainLooper).postDelayed({
+            navigation.navigateToHome()
+        }, 2500)
     }
 
 }
