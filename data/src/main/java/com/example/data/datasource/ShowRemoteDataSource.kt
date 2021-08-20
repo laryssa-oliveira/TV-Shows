@@ -5,4 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ShowRemoteDataSource {
     fun getShows() : Flow<List<Show>>
+    fun getSearchShows(search: String) : Flow<List<Show>>
 }

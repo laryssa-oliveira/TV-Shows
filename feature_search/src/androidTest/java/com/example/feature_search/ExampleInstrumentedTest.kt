@@ -1,4 +1,4 @@
-package br.com.feature_search
+package com.example.feature_search
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("br.com.com.example.feature_search", appContext.packageName)
+        assertEquals("com.example.feature_search.test", appContext.packageName)
     }
 }

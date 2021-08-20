@@ -12,4 +12,8 @@ class ShowRemoteDataSourceImpl (private val service: ApiService): ShowRemoteData
     override fun getShows(): Flow<List<Show>> = flow {
         emit(wrapResponse { service.getShows() }.data?.fromListResponse()!!)
     }
+
+    override fun getSearchShows(search: String): Flow<List<Show>> = flow {
+        emit(wrapResponse { service.getSearchShows(search) }.data?.fromListResponse()!!)
+    }
 }
