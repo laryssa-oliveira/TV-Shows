@@ -2,7 +2,7 @@ package com.example.data_remote.shows.api
 
 import com.example.data.constants.Constants.BASE_URL
 import com.example.data.constants.Constants.SHOWS
-import com.example.data_remote.shows.model.GetShowsResponse
+import com.example.data_remote.shows.model.ShowResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 interface ApiService {
 
     @GET(SHOWS)
-    suspend fun getShows(): Response<GetShowsResponse>
+    suspend fun getShows(): Response<List<ShowResponse>>
 
     companion object{
         fun newInstance(): ApiService = Retrofit.Builder()

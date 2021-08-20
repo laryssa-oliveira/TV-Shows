@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/mainFragment">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.feature_main.ui.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_favoriteShowsFragment"
-            app:destination="@id/favoriteShowsFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.feature_main.ui.SearchFragment"
-        android:label="SearchFragment" >
-        <action
-            android:id="@+id/action_searchFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -29,7 +17,8 @@
     <fragment
         android:id="@+id/favoriteShowsFragment"
         android:name="com.example.feature_main.ui.FavoriteShowsFragment"
-        android:label="FavoriteShowsFragment" >
+        android:label="FavoriteShowsFragment"
+        tools:layout="@layout/fragment_favorite_shows">
         <action
             android:id="@+id/action_favoriteShowsFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -37,9 +26,19 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.feature_main.ui.DetailsFragment"
-        android:label="DetailsFragment" >
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="show"
             app:argType="com.example.base_feature.model.ShowPresentation" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.feature_main.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>
