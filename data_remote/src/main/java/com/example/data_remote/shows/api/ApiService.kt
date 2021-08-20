@@ -9,14 +9,17 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface ApiService {
 
     @GET(SHOWS)
     suspend fun getShows(): Response<List<ShowResponse>>
+    @GET(SHOWS)
+    suspend fun getSearchShows(@Query("q") search: String): Response<List<ShowResponse>>
 
-    companion object{
+    companion object {
         fun newInstance(): ApiService = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(getClient())

@@ -1,4 +1,4 @@
-package br.com.feature_search
+package com.example.feature_search
 
 import org.junit.Test
 

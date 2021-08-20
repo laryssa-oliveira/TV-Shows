@@ -15,10 +15,6 @@ dependencies {
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
     presentationDependencies.each { add(it.configuration, it.dependency, it.options) }
     implementation project(':base_feature')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 }
 
 repositories {
