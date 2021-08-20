@@ -1,4 +1,4 @@
-package com.example.feature_main.navigation
+package com.example.base_feature.details
 
 import com.example.base_feature.model.ShowPresentation
 

@@ -28,29 +28,6 @@ class ShowAdapter(
                 .load(show.image.original)
                 .placeholder(R.drawable.ic_broken_image)
                 .into(imageView)
-/*
-            val favImageView = itemView.findViewById<AppCompatImageView>(R.id.buttonFavorite)
-            if (show.favorite) {
-                favImageView.setImageResource(R.drawable.ic_favorite)
-            } else {
-                favImageView.setImageResource(R.drawable.ic_not_favorite)
-            }
-
-
-            favImageView.setOnClickListener {
-                callbackLike.invoke(show, show.favorite)
-                if (show.favorite) {
-                    show.favorite = false
-                    favImageView.setImageResource(R.drawable.ic_not_favorite)
-                } else {
-                    show.favorite = true
-                    favImageView.setImageResource(R.drawable.ic_favorite)
-                }
-
-            }
-
-             */
-
 
         }
 
