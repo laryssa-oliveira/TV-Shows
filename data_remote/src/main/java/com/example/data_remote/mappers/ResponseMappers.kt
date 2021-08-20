@@ -5,6 +5,7 @@ import com.example.data_remote.shows.model.ShowImageResponse
 import com.example.data_remote.shows.model.ShowResponse
 import com.example.domain.entities.Show
 import com.example.domain.entities.ShowImage
+import retrofit2.Response
 
 fun ShowResponse.toModel(): Show {
     return Show(
@@ -26,6 +27,7 @@ fun ShowImageResponse.toModel(): ShowImage {
     )
 }
 
-fun GetShowsResponse.fromListResponse(): List<Show>{
-    return this.shows.map { it.toModel() }
+fun List<ShowResponse>.fromListResponse(): List<Show>{
+    return this.map { it.toModel() }
 }
+
