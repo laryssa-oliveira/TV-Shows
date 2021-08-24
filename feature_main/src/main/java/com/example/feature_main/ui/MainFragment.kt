@@ -43,7 +43,7 @@ class MainFragment : Fragment() {
         mainViewModel.showListLiveData.observe(viewLifecycleOwner, {
             when (it.state) {
 
-                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf<ShowPresentation>())
+                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf())
                 ViewState.State.ERROR -> onResultError(it.error)
                 ViewState.State.LOADING -> onLoading(it.isLoading)
             }

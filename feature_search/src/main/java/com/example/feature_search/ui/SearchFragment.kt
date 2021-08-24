@@ -53,19 +53,11 @@ class SearchFragment : Fragment() {
     }
 
     private fun setObservers() {
-        searchViewModel.showListLiveData.observe(viewLifecycleOwner, {
-            when (it.state) {
-
-                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf<ShowPresentation>())
-                ViewState.State.ERROR -> onResultError(it.error)
-                ViewState.State.LOADING -> onLoading(it.isLoading)
-            }
-        })
 
         searchViewModel.searchShow.observe(viewLifecycleOwner, {
             when (it.state) {
 
-                ViewState.State.SUCCESS -> onSuccessSearch(it.data ?: listOf<Show>())
+                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf())
                 ViewState.State.ERROR -> onResultError(it.error)
                 ViewState.State.LOADING -> onLoading(it.isLoading)
             }
@@ -89,13 +81,6 @@ class SearchFragment : Fragment() {
         onLoading(false)
         adapter = ShowAdapter(callback = ::clickItem)
         adapter.setItems(list)
-        binding.recyclerViewSearch.adapter = adapter
-    }
-
-    private fun onSuccessSearch(list: List<Show>) {
-        onLoading(false)
-        adapter = ShowAdapter(callback = ::clickItem)
-        adapter.setItems(list.toShowModel())
         binding.recyclerViewSearch.adapter = adapter
         binding.recyclerViewSearch.visibility = View.VISIBLE
         binding.cardSearch.visibility = View.GONE
