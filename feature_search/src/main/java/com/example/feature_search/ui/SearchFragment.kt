@@ -50,7 +50,6 @@ class SearchFragment : Fragment() {
         })
 
         setObservers()
-        searchViewModel.getSearchShows()
     }
 
     private fun setObservers() {
