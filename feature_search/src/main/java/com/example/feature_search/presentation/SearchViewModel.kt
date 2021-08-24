@@ -20,22 +20,6 @@ class SearchViewModel: ViewModel(), KoinComponent {
     private val _searchShow by viewState<List<Show>>()
     val searchShow: LiveData<ViewState<List<Show>>> = _searchShow
 
-    fun getSearchShows() {
-        _showListLiveData.value = ViewState.loading(true)
-        searchUseCase(
-            onError = {
-                _showListLiveData.value = ViewState.error(it)
-                _showListLiveData.value = ViewState.loading(false)
-            },
-            onSuccess = {
-                listShow.clear()
-                listShow.addAll(it)
-                _showListLiveData.value = ViewState.loading(false)
-                _showListLiveData.value = ViewState.success(it.toShowModel())
-            }
-        )
-    }
-
     fun search(term: String) {
         searchUseCase(params = SearchUseCase.SearchParams(listShow, term),
             onSuccess = {
