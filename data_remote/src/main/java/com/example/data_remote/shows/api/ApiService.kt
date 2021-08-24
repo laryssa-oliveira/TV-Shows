@@ -1,7 +1,9 @@
 package com.example.data_remote.shows.api
 
 import com.example.data.constants.Constants.BASE_URL
+import com.example.data.constants.Constants.SEARCH
 import com.example.data.constants.Constants.SHOWS
+import com.example.data_remote.shows.model.SearchResponse
 import com.example.data_remote.shows.model.ShowResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,8 +18,8 @@ interface ApiService {
 
     @GET(SHOWS)
     suspend fun getShows(): Response<List<ShowResponse>>
-    @GET(SHOWS)
-    suspend fun getSearchShows(@Query("q") search: String): Response<List<ShowResponse>>
+    @GET(SEARCH)
+    suspend fun getSearchShows(@Query("q") search: String): Response<List<SearchResponse>>
 
     companion object {
         fun newInstance(): ApiService = Retrofit.Builder()
