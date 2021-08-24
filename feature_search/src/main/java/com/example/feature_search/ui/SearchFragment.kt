@@ -53,14 +53,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun setObservers() {
-        searchViewModel.showListLiveData.observe(viewLifecycleOwner, {
-            when (it.state) {
-
-                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf<ShowPresentation>())
-                ViewState.State.ERROR -> onResultError(it.error)
-                ViewState.State.LOADING -> onLoading(it.isLoading)
-            }
-        })
 
         searchViewModel.searchShow.observe(viewLifecycleOwner, {
             when (it.state) {
@@ -83,13 +75,6 @@ class SearchFragment : Fragment() {
 
     private fun onResultError(error: Throwable?) {
         Toast.makeText(requireContext(), error?.message ?: "", Toast.LENGTH_LONG).show()
-    }
-
-    private fun onSuccess(list: List<ShowPresentation>) {
-        onLoading(false)
-        adapter = ShowAdapter(callback = ::clickItem)
-        adapter.setItems(list)
-        binding.recyclerViewSearch.adapter = adapter
     }
 
     private fun onSuccessSearch(list: List<Show>) {
