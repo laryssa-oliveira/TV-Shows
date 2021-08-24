@@ -9,6 +9,6 @@ import org.koin.dsl.module
 val domainModule = module {
     single { ThreadContextProvider() }
     factory { (scope: CoroutineScope) -> MainUseCase(scope, get()) }
-    factory { (scope: CoroutineScope) -> SearchUseCase(scope) }
+    factory { (scope: CoroutineScope) -> SearchUseCase(scope, get()) }
 
 }

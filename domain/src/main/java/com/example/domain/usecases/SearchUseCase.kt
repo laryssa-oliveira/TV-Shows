@@ -2,24 +2,18 @@ package com.example.domain.usecases
 
 import com.example.domain.core.UseCase
 import com.example.domain.entities.Show
+import com.example.domain.exceptions.EmptyFieldException
 import com.example.domain.exceptions.MissingParamsException
+import com.example.domain.repository.ShowRepository
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
-class SearchUseCase(scope: CoroutineScope): UseCase<MutableList<Show>, SearchUseCase.SearchParams>(scope) {
-    data class SearchParams(val listShow: MutableList<Show>, val term: String)
+class SearchUseCase(scope: CoroutineScope, private val showRepository: ShowRepository) :
+    UseCase<List<Show>, SearchUseCase.SearchParams>(scope) {
+    data class SearchParams(val term: String)
 
-    override fun run(params: SearchParams?): Flow<MutableList<Show>> {
-        return when {
-            params == null -> throw MissingParamsException()
-            params.term.isEmpty() -> flowOf(params.listShow)
-            else -> searchShow(params.term, params.listShow)
-        }
-    }
-
-    private fun searchShow(term: String, list: MutableList<Show>): Flow<MutableList<Show>> {
-        val shows = list.filter { it.name.toLowerCase().contains(term.toLowerCase()) }.toMutableList()
-        return flowOf(shows)
+    override fun run(params: SearchParams?) = when {
+        params == null -> throw MissingParamsException()
+        params.term.isEmpty() -> throw EmptyFieldException()
+        else -> showRepository.getSearchShows(params.term)
     }
 }

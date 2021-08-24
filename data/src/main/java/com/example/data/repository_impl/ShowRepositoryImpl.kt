@@ -14,17 +14,5 @@ class ShowRepositoryImpl(
         emit(showRemoteDataSource.getShows().single())
     }
 
-    override fun getSearchShows(search: String) = flow {
-        emit(showRemoteDataSource.getSearchShows(search).single())
-    }
-/*
-    override fun favoriteShow(like: Boolean, show: Show): Flow<Boolean> {
-
-    }
-
-    override fun getFavoriteShows(): Flow<List<Show>> {
-
-    }
-
- */
+    override fun getSearchShows(search: String) = showRemoteDataSource.getSearchShows(search)
 }

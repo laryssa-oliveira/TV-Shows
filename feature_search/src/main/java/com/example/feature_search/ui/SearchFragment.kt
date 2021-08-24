@@ -57,7 +57,7 @@ class SearchFragment : Fragment() {
         searchViewModel.searchShow.observe(viewLifecycleOwner, {
             when (it.state) {
 
-                ViewState.State.SUCCESS -> onSuccessSearch(it.data ?: listOf<Show>())
+                ViewState.State.SUCCESS -> onSuccess(it.data ?: listOf())
                 ViewState.State.ERROR -> onResultError(it.error)
                 ViewState.State.LOADING -> onLoading(it.isLoading)
             }
@@ -77,10 +77,10 @@ class SearchFragment : Fragment() {
         Toast.makeText(requireContext(), error?.message ?: "", Toast.LENGTH_LONG).show()
     }
 
-    private fun onSuccessSearch(list: List<Show>) {
+    private fun onSuccess(list: List<ShowPresentation>) {
         onLoading(false)
         adapter = ShowAdapter(callback = ::clickItem)
-        adapter.setItems(list.toShowModel())
+        adapter.setItems(list)
         binding.recyclerViewSearch.adapter = adapter
         binding.recyclerViewSearch.visibility = View.VISIBLE
         binding.cardSearch.visibility = View.GONE
