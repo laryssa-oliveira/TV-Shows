@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.single
 class ShowRepositoryImpl(
     private val showRemoteDataSource: ShowRemoteDataSource
 ) : ShowRepository{
-    override fun getShows() = flow {
-        emit(showRemoteDataSource.getShows().single())
-    }
+    override fun getShows() = showRemoteDataSource.getShows()
 
     override fun getSearchShows(search: String) = showRemoteDataSource.getSearchShows(search)
 }
