@@ -1,4 +1,4 @@
-package com.example.base_feature
+package com.example.feature_favorite.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +7,16 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.base_feature.R
 import com.example.base_feature.model.ShowPresentation
 
-class ShowAdapter(
+class FavoriteShowAdapter(
     private val callback: (ShowPresentation) -> Unit,
-    private val callbackLike: (like: Boolean, show: ShowPresentation) -> Unit
-) : RecyclerView.Adapter<ShowAdapter.ShowsViewHolder>() {
+    private val callbackLike: (like: Boolean, show: ShowPresentation) -> Unit,
+    private val callbackUpdateUi: (shows: MutableList<ShowPresentation>) -> Unit
+) : RecyclerView.Adapter<FavoriteShowAdapter.ShowsViewHolder>() {
 
-    private var shows: List<ShowPresentation> = emptyList()
+    private var shows: MutableList<ShowPresentation> = mutableListOf()
 
     inner class ShowsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(show: ShowPresentation) {
@@ -35,6 +37,9 @@ class ShowAdapter(
                 callbackLike.invoke(show.favorite, show)
                 if (show.favorite) {
                     show.favorite = false
+                    notifyItemRemoved(adapterPosition)
+                    shows.remove(show)
+                    callbackUpdateUi.invoke(shows)
                     favImageView.setImageResource(R.drawable.ic_not_favorite)
                 } else {
                     show.favorite = true
@@ -45,10 +50,9 @@ class ShowAdapter(
 
             Glide
                 .with(itemView)
-                .load(show.image.original)
+                .load(show.image)
                 .placeholder(R.drawable.ic_broken_image)
-                .into(imageView)
-
+                .into(imageView);
         }
 
     }
@@ -70,7 +74,7 @@ class ShowAdapter(
         return shows.size
     }
 
-    fun setItems(list: List<ShowPresentation>) {
+    fun setItems(list: MutableList<ShowPresentation>) {
         shows = list
     }
 }

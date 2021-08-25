@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteShowsFragment"
-        android:name="com.example.feature_main.ui.FavoriteShowsFragment"
+        android:name="com.example.feature_favorite.ui.FavoriteShowFragment"
         android:label="FavoriteShowsFragment"
-        tools:layout="@layout/fragment_favorite_shows">
+        tools:layout="@layout/fragment_favorite_show">
         <action
             android:id="@+id/action_favoriteShowsFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />

@@ -14,6 +14,7 @@ dependencies {
     implementation project(':data_remote')
     implementation project(':base_feature')
     implementation project(':feature_search')
+    implementation project(':feature_favorite')
 
     diDependencies.each { add(it.configuration, it.dependency, it.option) }
 }

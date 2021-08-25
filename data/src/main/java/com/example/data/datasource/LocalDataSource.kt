@@ -8,7 +8,5 @@ interface LocalDataSource {
 
     fun favoriteShow(like: Boolean, show: Show): Flow<Boolean>
 
-    suspend fun getShowById(id: Int): Show?
-
-    suspend fun getShowByFavorite(): List<Show>
+    fun getShowByFavorite(): Flow<List<Show>>
 }

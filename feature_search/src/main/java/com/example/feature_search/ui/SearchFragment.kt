@@ -8,14 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import com.example.base_feature.ShowAdapter
 import com.example.base_feature.ViewState
-import com.example.base_feature.mappers.ShowMapper.toShowModel
 import com.example.base_feature.model.ShowPresentation
 import com.example.base_feature.navDirections
-import com.example.base_feature.viewState
-import com.example.domain.entities.Show
 import com.example.feature_search.navigation.SearchNavigation
 import com.example.feature_search.presentation.SearchViewModel
 import feature_search.databinding.FragmentSearchBinding
@@ -79,7 +75,7 @@ class SearchFragment : Fragment() {
 
     private fun onSuccess(list: List<ShowPresentation>) {
         onLoading(false)
-        adapter = ShowAdapter(callback = ::clickItem)
+        adapter = ShowAdapter(callback = ::clickItem, callbackLike = ::clickLikeItem)
         adapter.setItems(list)
         binding.recyclerViewSearch.adapter = adapter
         binding.recyclerViewSearch.visibility = View.VISIBLE
@@ -89,6 +85,10 @@ class SearchFragment : Fragment() {
 
     private fun clickItem(show: ShowPresentation) {
         navigation.navigateToDetails(show)
+    }
+
+    private fun clickLikeItem(like: Boolean, show: ShowPresentation) {
+        searchViewModel.favorite(like, show)
     }
 
 }
