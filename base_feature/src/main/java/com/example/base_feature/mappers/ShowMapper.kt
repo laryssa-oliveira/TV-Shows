@@ -26,4 +26,24 @@ object ShowMapper {
         )
 
     fun List<Show>.toShowModel() = this.map { it.toShowModel() }
+
+    fun ShowPresentation.toModel() =
+        Show(
+            id = id,
+            name = name,
+            summary = summary,
+            image = image.toModel(),
+            officialSite = officialSite,
+            genres = genres,
+            status = status,
+            favorite = favorite
+        )
+
+    fun ShowImagePresentation.toModel() =
+        ShowImage(
+            medium = medium,
+            original = original
+        )
+
+    fun List<ShowPresentation>.toModel() = this.map { it.toModel() }
 }

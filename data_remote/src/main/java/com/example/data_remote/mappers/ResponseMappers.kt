@@ -1,12 +1,10 @@
 package com.example.data_remote.mappers
 
-import com.example.data_remote.shows.model.GetShowsResponse
 import com.example.data_remote.shows.model.SearchResponse
 import com.example.data_remote.shows.model.ShowImageResponse
 import com.example.data_remote.shows.model.ShowResponse
 import com.example.domain.entities.Show
 import com.example.domain.entities.ShowImage
-import retrofit2.Response
 
 fun ShowResponse.toModel(): Show {
     return Show(

@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface ShowRepository {
     fun getShows() : Flow<List<Show>>
     fun getSearchShows(search: String) : Flow<List<Show>>
+    fun favoriteShow(like: Boolean, show: Show): Flow<Boolean>
+    fun getFavoriteShows() : Flow<List<Show>>
 }

@@ -20,8 +20,8 @@ class LocalDataSourceImpl(
         emit(!like)
     }
 
-    override suspend fun getShowById(id: Int) = showDao.getShowById(id)?.toModel()
-
-    override suspend fun getShowByFavorite() = showDao.getShowByFavorite()?.toModel() ?: listOf()
+    override fun getShowByFavorite() = flow {
+        emit(showDao.getShowByFavorite()?.toModel() ?: listOf())
+    }
 
 }

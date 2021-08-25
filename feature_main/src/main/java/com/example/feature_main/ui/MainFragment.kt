@@ -65,13 +65,17 @@ class MainFragment : Fragment() {
 
     private fun onSuccess(list: List<ShowPresentation>) {
         onLoading(false)
-        adapter = ShowAdapter(callback = ::clickItem)
+        adapter = ShowAdapter(callback = ::clickItem, callbackLike = ::clickLikeItem)
         adapter.setItems(list)
         binding.recyclerViewShow.adapter = adapter
     }
 
     private fun clickItem(show: ShowPresentation) {
         navigation.navigateToDetails(show)
+    }
+
+    private fun clickLikeItem(like: Boolean, show: ShowPresentation) {
+        mainViewModel.favorite(like, show)
     }
 
 }
