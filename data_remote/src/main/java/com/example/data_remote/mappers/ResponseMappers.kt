@@ -32,6 +32,6 @@ fun List<ShowResponse>.fromListResponse(): List<Show>{
     return this.map { it.toModel() }
 }
 
-fun List<SearchResponse>.fromSearchListResponse(): List<Show>{
-    return this.map { it.toModel() }
+fun List<SearchResponse>.fromSearchListResponse(): List<Show> {
+    return this.map { it.showResponse.toModel() }
 }
