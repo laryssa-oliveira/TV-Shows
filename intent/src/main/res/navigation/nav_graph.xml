@@ -15,15 +15,6 @@
             app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/favoriteShowsFragment"
-        android:name="com.example.feature_favorite.ui.FavoriteShowFragment"
-        android:label="FavoriteShowsFragment"
-        tools:layout="@layout/fragment_favorite_show">
-        <action
-            android:id="@+id/action_favoriteShowsFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.base_feature.details.DetailsFragment"
         android:label="DetailsFragment"
@@ -39,6 +30,15 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteShowFragment"
+        android:name="com.example.feature_favorite.ui.FavoriteShowFragment"
+        android:label="FavoriteShowFragment"
+        tools:layout="@layout/fragment_favorite_show">
+        <action
+            android:id="@+id/action_favoriteShowFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>

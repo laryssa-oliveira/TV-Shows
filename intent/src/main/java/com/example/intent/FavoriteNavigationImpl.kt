@@ -8,6 +8,6 @@ import com.example.intent.utils.navigate
 
 class FavoriteNavigationImpl(private val fragment: Fragment) : FavoriteNavigation {
     override fun navigateToDetails(show: ShowPresentation) = fragment.navigate(
-        FavoriteShowFragmentDirections.actionFavoriteShowsFragmentToDetailsFragment(show)
+        FavoriteShowFragmentDirections.actionFavoriteShowFragmentToDetailsFragment(show)
     )
 }

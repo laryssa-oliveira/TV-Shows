@@ -24,7 +24,7 @@ class FavoriteShowFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoriteShowBinding.inflate(inflater, container, false)
         return binding.root
     }
