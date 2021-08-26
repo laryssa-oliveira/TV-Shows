@@ -5,12 +5,6 @@ apply plugin: 'kotlin-kapt'
 
 apply from: "$rootProject.projectDir/android-common.gradle"
 
-android {
-    buildFeatures {
-        viewBinding true
-    }
-}
-
 dependencies {
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
     presentationDependencies.each { add(it.configuration, it.dependency, it.option) }

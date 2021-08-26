@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TVShows">
-        <activity
-            android:name="com.example.tv_shows.HomeActivity"
-            android:exported="true" />
+
     </application>
 
 </manifest>

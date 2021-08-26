@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.base_feature.GenreAdapter
 import com.example.base_feature.R
-import com.example.base_feature.ShowAdapter
 import com.example.base_feature.databinding.FragmentDetailsBinding
 import com.example.base_feature.navDirections
 
@@ -21,7 +20,7 @@ class DetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return  binding.root
     }

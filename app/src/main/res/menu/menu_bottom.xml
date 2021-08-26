@@ -16,7 +16,7 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/favoriteShowsFragment"
+        android:id="@+id/favoriteShowFragment"
         android:enabled="true"
         android:icon="@drawable/ic_not_favorite"
         android:title="@string/favorites" />
