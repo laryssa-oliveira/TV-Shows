@@ -12,7 +12,7 @@ import com.example.base_feature.navDirections
 import com.example.feature_favorite.databinding.FragmentFavoriteShowBinding
 import com.example.feature_favorite.navigation.FavoriteNavigation
 import com.example.feature_favorite.presentation.FavoriteShowViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteShowFragment : Fragment() {
 

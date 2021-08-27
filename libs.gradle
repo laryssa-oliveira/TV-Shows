@@ -18,9 +18,9 @@ ext {
     liveData             = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
     //koin
-    koinAndroid          = "org.koin:koin-android:$koinVersion"
-    koinScope            = "org.koin:koin-androidx-scope:$koinVersion"
-    koinViewModel        = "org.koin:koin-androidx-viewmodel:$koinVersion"
+    koinCore                   = "io.insert-koin:koin-core:$koinVersion"
+    koinViewModel              = "io.insert-koin:koin-android-viewmodel:$koinVersion"
+    koinAndroid                = "io.insert-koin:koin-android:$koinVersion"
 
     //retrofit
     retrofit2            = "com.squareup.retrofit2:retrofit:$retrofitVersion"

@@ -24,7 +24,7 @@ ext {
     recyclerViewVersion           = "1.2.0-alpha05"
 
     //koin
-    koinVersion                   = "2.0.1"
+    koinVersion                   = "2.2.3"
 
     //retrofit
     retrofitVersion               = "2.9.0"

@@ -10,7 +10,7 @@ import com.example.base_feature.useCase
 import com.example.base_feature.viewState
 import com.example.domain.usecases.FavoriteShowUseCase
 import com.example.domain.usecases.MainUseCase
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 
 class MainViewModel : ViewModel(), KoinComponent {
 
