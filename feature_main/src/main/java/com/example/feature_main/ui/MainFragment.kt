@@ -13,7 +13,7 @@ import com.example.base_feature.navDirections
 import com.example.feature_main.databinding.FragmentMainBinding
 import com.example.feature_main.navigation.HomeNavigation
 import com.example.feature_main.presentation.MainViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 

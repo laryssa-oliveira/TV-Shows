@@ -15,7 +15,7 @@ import com.example.base_feature.navDirections
 import com.example.feature_search.navigation.SearchNavigation
 import com.example.feature_search.presentation.SearchViewModel
 import feature_search.databinding.FragmentSearchBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class SearchFragment : Fragment() {
 
